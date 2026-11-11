@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta cahrset="UTF-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1.0" />
+    <title>Function</title>
+  </head>
+  <body>
+    <script>
+      function getSum(start, end = start + 1) {
+        let sum = 0
+        for (let i = start; i < end; ++i) {
+          sum += i
+        }
+        return sum
+      }
+      let start = +prompt("Enter the start number:")
+      let end = +prompt("Enter the end number:")
+      document.write(`The sum from  ${start} to ${end} is ${getSum(start, end)}`)
+
+      let fnAdd = function (left, right) {
+        return left + right
+      }
+      document.write(`<br>${start} + ${end} is ${fnAdd(start, end)}`)
+      ;(function () {
+        document.write("<br>First")
+      })()
+      ;(function () {
+        document.write("<br>Second")
+      })()
+    </script>
+  </body>
+</html>
