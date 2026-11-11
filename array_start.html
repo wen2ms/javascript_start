@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      let arr = ["a", 1, null, undefined]
+      for (let i = 0; i < arr.length; ++i) {
+        document.write(`${arr[i]}<br>`)
+      }
+      document.write(`${arr.push("beauty")}<br>`)
+      console.log(arr)
+      document.write(`${arr.unshift(2)}`)
+      console.log(arr)
+
+      arr = ["pink", "red", "blue"]
+      console.log(arr.pop())
+      console.log(arr)
+      console.log(arr.shift())
+
+      arr = ["pink", "red", "blue"]
+      arr.splice(1, 1)
+      console.log(arr)
+    </script>
+  </body>
+</html>
