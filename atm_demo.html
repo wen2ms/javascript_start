@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atm demo</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      let balance = 100
+      let isRunning = true
+      while (isRunning) {
+        let choice = prompt(`
+Welcome to ATM!
+1. Withdraw money
+2. Deposit money
+3. Check balance
+4. Exit
+
+Please enter your choice:
+`)
+
+        switch (choice) {
+          case "1": {
+            let amount = Number(prompt("Enter withdrawal amount:"))
+            if (amount > 0 && amount <= balance) {
+              balance -= amount
+              alert(`Successfully withdraw $${amount}`)
+            } else {
+              alert("Invalid amount or insufficient balance!")
+            }
+            break
+          }
+          case "2": {
+            let amount = Number(prompt("Enter deposit amount:"))
+            if (amount > 0) {
+              balance += amount
+              alert(`Successfully deposited $${amount}`)
+            } else {
+              alert("Invalid deposit amount")
+            }
+            break
+          }
+          case "3": {
+            alert(`Your current balance is $${balance}`)
+            break
+          }
+          case "4": {
+            isRunning = false
+            alert("Thank you for using ATM. Goodbye!")
+            break
+          }
+          default:
+            alert("Invalid choice. Please try again.")
+        }
+      }
+    </script>
+  </body>
+</html>

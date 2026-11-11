@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controls statements</title>
+  </head>
+  <body>
+    <script>
+      if ("") {
+        document.write("True")
+      } else {
+        document.write("Go")
+      }
+
+      let year = +prompt("Enter a year")
+      if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        alert("Leap year")
+        // else if
+      } else {
+        alert("Common year")
+      }
+
+      let num1 = +prompt("Enter the first number")
+      let num2 = +prompt("Enter the second number")
+      alert(num1 > num2 ? num1 : num2)
+
+      switch (4) {
+        case 1:
+          console.log("Choosen 1")
+          break
+        case 2:
+          console.log("Choosen 2")
+          break
+        case 3:
+          console.log("Choosen 3")
+          break
+        default:
+          console.log("Choosen null")
+      }
+
+      let i = 0
+      while (i < 3) {
+        ++i
+        document.write("<br>I am good")
+      }
+
+      let even_sum = 0
+      for (let i = 0; i <= 100; ++i) {
+        if (i % 2 == 0) {
+          even_sum += i
+        }
+      }
+      document.write(`<br>Even sum is ${even_sum}`)
+
+      let arr = [1, 2, 3, 4, 5, 6]
+      for (let i = 0; i < arr.length; ++i) {
+        console.log(arr[i])
+      }
+    </script>
+  </body>
+</html>
