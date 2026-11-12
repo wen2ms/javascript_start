@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draw</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      .wrapper {
+        width: 840px;
+        height: 420px;
+        background: url(./images/bg01.svg) no-repeat center/cover;
+        padding: 100px 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <strong>Team Celebration Lucky Draw</strong>
+      <h1>First prize: <span id="first-price"></span></h1>
+      <h3>Second prize: <span id="second-price"></span></h3>
+      <h5>Third prize: <span id="third-price"></span></h5>
+    </div>
+    <script>
+      const people = ["Alex", "Jordan", "Taylor", "Morgan", "Casey"]
+      const randomIndex1 = Math.floor(Math.random() * people.length)
+      const firstPrice = document.querySelector("#first-price")
+      firstPrice.innerHTML = people[randomIndex1]
+      people.splice(randomIndex1, 1)
+
+      const randomIndex2 = Math.floor(Math.random() * people.length)
+      const secondPrice = document.querySelector("#second-price")
+      secondPrice.innerHTML = people[randomIndex2]
+      people.splice(randomIndex2, 1)
+
+      const randomIndex3 = Math.floor(Math.random() * people.length)
+      const thirdPrice = document.querySelector("#third-price")
+      thirdPrice.innerHTML = people[randomIndex3]
+      people.splice(randomIndex3, 1)
+    </script>
+  </body>
+</html>

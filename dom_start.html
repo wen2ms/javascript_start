@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+  </head>
+  <body>
+    <div>Foo</div>
+    <div class="box">Foo</div>
+    <p id="nav">Nav</p>
+    <ul>
+      <li>Bar1</li>
+      <li>Bar2</li>
+      <li>Bar3</li>
+    </ul>
+    <div class="name">My name is</div>
+    <div class="uname">User name is</div>
+    <script>
+      const divTag = document.querySelector("div")
+      console.log(divTag)
+      const box = document.querySelector(".box")
+      console.log(box)
+      const nav = document.querySelector("#nav")
+      console.log(nav)
+      nav.style.color = "red"
+      const bar1 = document.querySelector("ul li:first-child")
+      console.log(bar1)
+      const allItems = document.querySelectorAll("ul li")
+      console.log(allItems)
+      // array-like object that doesn't support push() or pop().
+      for (let i = 0; i < allItems.length; ++i) {
+        console.log(allItems[i])
+      }
+      const name = document.querySelector(".name")
+      // innerText plain text only; HTML tags are not supported.
+      name.innerText = "I am Jar"
+      const uname = document.querySelector(".uname")
+      uname.innerHTML = "<strong>I am Jar</strong>"
+    </script>
+  </body>
+</html>
