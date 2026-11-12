@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Online | Home</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="course-catalog page-container">
+      <div class="course-catalog__header">
+        <h3 class="course-catalog__title">Featured Courses</h3>
+        <a class="course-catalog__view-all" href="#">View all</a>
+      </div>
+      <div class="course-catalog__body">
+        <ul class="course-list">
+          <script>
+            const courses = [
+              {
+                imageSrc: "images/course01.svg",
+                title: "Build a Blog with ThinkPHP 5.0",
+                learnerCount: 1125,
+              },
+              {
+                imageSrc: "images/course02.svg",
+                title: "Load Images Dynamically on Android",
+                learnerCount: 357,
+              },
+              {
+                imageSrc: "images/course03.svg",
+                title: "Build an Online Store with Angular 2",
+                learnerCount: 22250,
+              },
+              {
+                imageSrc: "images/course04.svg",
+                title: "Build Your First Android App",
+                learnerCount: 389,
+              },
+              {
+                imageSrc: "images/course05.svg",
+                title: "Explore the UGUI Source Code",
+                learnerCount: 124,
+              },
+              {
+                imageSrc: "images/course06.svg",
+                title: "Create KAMI 2 Screen Transitions",
+                learnerCount: 432,
+              },
+              {
+                imageSrc: "images/course07.svg",
+                title: "Master Unity with Hands-on Projects",
+                learnerCount: 888,
+              },
+              {
+                imageSrc: "images/course08.svg",
+                title: "Build Games with Cocos",
+                learnerCount: 590,
+              },
+              {
+                imageSrc: "images/course04.svg",
+                title: "Automatically Added Course",
+                learnerCount: 1000,
+              },
+            ]
+            for (let i = 0; i < courses.length; ++i) {
+              document.write(`
+                <li class="course-card">
+                    <a class="course-card__link" href="#">
+                        <img class="course-card__image" src="${courses[i].imageSrc}" title="${courses[i].title}">
+                        <h4 class="course-card__title">${courses[i].title}</h4>
+                        <div class="course-card__meta">
+                            <span>Advanced</span> • <span>${courses[i].learnerCount}</span> learners
+                        </div>
+                    </a>
+                </li>
+                `)
+            }
+          </script>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
