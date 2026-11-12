@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <script>
+      let person = {
+        uname: "pink",
+        age: "18",
+        gender: "Female",
+        sayHi: function (left, right) {
+          return `${left} Hi ${right}`
+        },
+      }
+      document.write(person.uname)
+      person.hobby = "Swim"
+      document.write(`<br>${person.hobby}`)
+      person["home-address"] = "Ans"
+      document.write(`<br>${person["home-address"]}`)
+      document.write(`<br>${person.sayHi()}`)
+
+      nums = [1, 2, 3, 4]
+      for (let index in nums) {
+        document.write(`<br>${index}`)
+      }
+      for (let key in person) {
+        document.write(`<br>${person[key]}`)
+      }
+    </script>
+  </body>
+</html>
