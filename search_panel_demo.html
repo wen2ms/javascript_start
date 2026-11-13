@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .search-panel {
+        position: relative;
+        width: 233px;
+        margin: 100px auto;
+      }
+
+      .search-panel input {
+        width: 233px;
+        height: 48px;
+        padding: 0 10px;
+        font-size: 14px;
+        line-height: 48px;
+        border: 2px solid #e0e0e0;
+        outline: none;
+      }
+
+      .search-panel .search {
+        border: 2px solid #ff6700;
+      }
+
+      .result-list {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 48px;
+        width: 233px;
+        border: 2px solid #ff6700;
+        border-top: 0;
+        background: #fff;
+      }
+
+      .result-list a {
+        display: block;
+        padding: 6px 15px;
+        font-size: 12px;
+        color: #424242;
+        text-decoration: none;
+      }
+
+      .result-list a:hover {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-panel">
+      <input type="search" placeholder="Xiaomi laptop" />
+      <ul class="result-list">
+        <li><a href="#">All products</a></li>
+        <li><a href="#">Xiaomi 11</a></li>
+        <li><a href="#">Xiaomi 10s</a></li>
+        <li><a href="#">Xiaomi laptop</a></li>
+        <li><a href="#">Xiaomi phone</a></li>
+        <li><a href="#">Black Shark 4</a></li>
+        <li><a href="#">Air conditioner</a></li>
+      </ul>
+    </div>
+    <script>
+      const input = document.querySelector("[type=search]")
+      const listElement = document.querySelector(".result-list")
+      input.addEventListener("focus", function () {
+        listElement.style.display = "block"
+        input.classList.add("search")
+      })
+      input.addEventListener("blur", function () {
+        listElement.style.display = "none"
+        input.classList.remove("search")
+      })
+      input.addEventListener("click", function () {
+        listElement.style.display = "block"
+        input.classList.add("search")
+      })
+      listElement.addEventListener("click", function (event) {
+        const option = event.target.closest("a")
+        if (!option) {
+          return
+        }
+        event.preventDefault()
+        input.value = option.textContent.trim()
+        listElement.style.display = "none"
+        input.classList.remove("search")
+      })
+      listElement.addEventListener("mousedown", function (event) {
+        event.preventDefault()
+      })
+    </script>
+  </body>
+</html>
