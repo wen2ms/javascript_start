@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update demo</title>
+    <>
+  </head>
+  <body>
+    <img src="images/1.svg" />
+    <script>
+      function getRandom(left, right) {
+        return Math.floor(Math.random() * (right - left + 1) + left)
+      }
+      const img = document.querySelector("img")
+      const imgIndex = getRandom(1, 6)
+      img.src = `images/${imgIndex}.svg`
+    </script>
+  </body>
+</html>

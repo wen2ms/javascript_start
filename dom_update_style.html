@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update style</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .box {
+        height: 200px;
+        width: 200px;
+        background-color: pink;
+      }
+
+      .link {
+        text-decoration: none;
+      }
+
+      .active {
+        color: #fff;
+      }
+
+      .container {
+        width: 100px;
+        height: 100px;
+        background-color: hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">Box</div>
+    <a href="#">Link</a>
+    <div class="container">Container</div>
+    <script>
+      const box = document.querySelector(".box")
+      box.style.height = "400px"
+      box.style.width = "400px"
+      // smallCamel
+      box.style.backgroundColor = "hotpink"
+      box.style.border = "2px solid blue"
+      const link = document.querySelector("a")
+      link.className = "link"
+      box.classList.add("active")
+      const container = document.querySelector(".container")
+      container.classList.remove("container")
+      container.classList.toggle("box")
+    </script>
+  </body>
+</html>
