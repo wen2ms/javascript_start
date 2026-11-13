@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agreement</title>
+  </head>
+  <body>
+    <textarea id="" name="" cols="30" rows="10">
+        This is a classroom demo. No account is created and no personal information is collected.
+
+Be respectful of other members. Share only content you have permission to share. Plan trips responsibly and follow local guidance.
+
+Read this sample agreement before selecting I agree.
+    </textarea>
+    <button class="agree-button" disabled>Read the agreement(5)</button>
+    <script>
+      const agreeButton = document.querySelector(".agree-button")
+      let time = 5
+      let intervalId = setInterval(function () {
+        --time
+        agreeButton.innerHTML = `Read the agreement(${time})`
+        if (time === 0) {
+          clearInterval(intervalId)
+          agreeButton.disabled = false
+          agreeButton.innerHTML = "Agree"
+        }
+      }, 1000)
+    </script>
+  </body>
+</html>

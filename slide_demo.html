@@ -95,7 +95,7 @@
       <div class="slider-footer">
         <p>Sunrise Ridge</p>
         <ul class="slider-indicator">
-          <li></li>
+          <li class="active"></li>
           <li></li>
           <li></li>
           <li></li>
@@ -121,15 +121,20 @@
         { url: "images/slider07.svg", title: "Ocean Cliffs", color: "#426975" },
         { url: "images/slider08.svg", title: "Alpine Escape", color: "#577657" },
       ]
-      const randomIndex = parseInt(Math.random() * slides.length)
       const img = document.querySelector(".slider-wrapper img")
-      img.src = slides[randomIndex].url
       const title = document.querySelector(".slider-footer p")
-      title.innerHTML = slides[randomIndex].title
       const sliderFooter = document.querySelector(".slider-footer")
-      sliderFooter.style.backgroundColor = slides[randomIndex].color
-      const activeLi = document.querySelector(`.slider-indicator li:nth-child(${randomIndex + 1})`)
-      activeLi.classList.add("active")
+      let index = 0
+      setInterval(function () {
+        index = (index + 1) % slides.length
+        img.src = slides[index].url
+        title.innerHTML = slides[index].title
+        sliderFooter.style.backgroundColor = slides[index].color
+        prev = document.querySelector(".slider-indicator .active")
+        prev.classList.remove("active")
+        curr = document.querySelector(`.slider-indicator li:nth-child(${index + 1})`)
+        curr.classList.add("active")
+      }, 1000)
     </script>
   </body>
 </html>

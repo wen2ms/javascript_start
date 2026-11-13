@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <input type="text" value="computer" />
+    <input type="checkbox" name="" id="" class="input-checkbox" />
+    <button>Click</button>
+    <script>
+      const computer = document.querySelector("input")
+      computer.value = "I want to buy a computer"
+      computer.type = "password"
+      const checkbox = document.querySelector(".input-checkbox")
+      checkbox.checked = false
+      const button = document.querySelector("button")
+      button.disabled = true
+    </script>
+  </body>
+</html>
