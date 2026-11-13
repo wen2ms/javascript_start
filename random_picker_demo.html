@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random picker</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .demo-panel {
+        width: 600px;
+        margin: 50px auto;
+        display: flex;
+        font-size: 25px;
+        line-height: 40px;
+      }
+
+      .selected-name {
+        width: 250px;
+        height: 40px;
+        color: red;
+      }
+
+      .button-group {
+        text-align: center;
+      }
+
+      .button-group button {
+        width: 120px;
+        height: 35px;
+        margin: 0 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Random name picker</h2>
+    <div class="demo-panel">
+      <span>Selected name:</span>
+      <div class="selected-name">A name will appear here</div>
+    </div>
+    <div class="button-group">
+      <button class="start">Start</button>
+      <button class="end">Stop</button>
+    </div>
+    <script>
+      const availableNames = ["Alex", "Jordan", "Taylor", "Morgan", "Casey"]
+      let randomIndex = 0
+      let timerId = 0
+      const selectedName = document.querySelector(".selected-name")
+      const startButton = document.querySelector(".start")
+      startButton.addEventListener("click", function () {
+        if (timerId || availableNames.length === 0) {
+          return
+        }
+        timerId = setInterval(function () {
+          randomIndex = parseInt(Math.random() * availableNames.length)
+          selectedName.innerHTML = availableNames[randomIndex]
+        }, 35)
+        if (availableNames.length === 1) {
+          clearInterval(timerId)
+          timerId = 0
+          startButton.disabled = stopButton.disabled = true
+        }
+      })
+      const stopButton = document.querySelector(".end")
+      stopButton.addEventListener("click", function () {
+        if (!timerId) {
+          return
+        }
+        clearInterval(timerId)
+        timerId = 0
+        availableNames.splice(randomIndex, 1)
+      })
+    </script>
+  </body>
+</html>
