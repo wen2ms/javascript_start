@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, intiial-scale=1.0" />
+    <title>Tab</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .tab {
+        width: 690px;
+        height: 340px;
+        margin: 20px;
+        border: 2px solid #e4e4e4;
+      }
+
+      .tab-nav {
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .tab-nav h3 {
+        font-size: 24px;
+        font-weight: 400;
+        margin-left: 20px;
+      }
+
+      .tab-nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .tab-nav ul li {
+        font-size: 14px;
+        margin: 0 20px;
+      }
+
+      .tab-nav__link {
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        color: #333;
+      }
+
+      .tab-nav__link.active {
+        border-color: #e1251b;
+        color: #e1251b;
+      }
+
+      .tab-content {
+        padding: 0 16px;
+      }
+
+      .tab-content__item {
+        display: none;
+      }
+
+      .tab-content__item.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <div class="tab-nav">
+        <h3>Daily deals</h3>
+        <ul>
+          <li><a class="tab-nav__link active" href="javascript:;">Featured</a></li>
+          <li><a class="tab-nav__link" href="javascript:;">Food</a></li>
+          <li><a class="tab-nav__link" href="javascript:;">Household</a></li>
+          <li><a class="tab-nav__link" href="javascript:;">Personal care</a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div class="tab-content__item active">
+          <img src="images/product-1.svg" alt="" />
+        </div>
+        <div class="tab-content__item">
+          <img src="images/product-2.svg" alt="" />
+        </div>
+        <div class="tab-content__item">
+          <img src="images/product-3.svg" alt="" />
+        </div>
+        <div class="tab-content__item">
+          <img src="images/product-4.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      const tabLinks = document.querySelectorAll(".tab-nav__link")
+      for (let i = 0; i < tabLinks.length; ++i) {
+        tabLinks[i].addEventListener("mouseenter", function () {
+          const activedTabNavLink = document.querySelector(".tab-nav__link.active")
+          activedTabNavLink.classList.remove("active")
+          this.classList.add("active")
+          const activedTabContentItem = document.querySelector(".tab-content__item.active")
+          activedTabContentItem.classList.remove("active")
+          const currTabContentItem = document.querySelector(`.tab-content__item:nth-child(${i + 1})`)
+          currTabContentItem.classList.add("active")
+        })
+      }
+    </script>
+  </body>
+</html>
