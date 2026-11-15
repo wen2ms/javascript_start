@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkbox</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      table {
+        border-collapse: collapse;
+        border: 2px solid #c0c0c0;
+        border-spacing: 0;
+        width: 500px;
+        margin: 100px auto;
+        text-align: center;
+      }
+
+      th {
+        background-color: #09c;
+        font: bold 16px "Arial";
+        color: #fff;
+        height: 24px;
+      }
+
+      td {
+        border: 2px solid #d0d0d0;
+        color: #404060;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th class="all-check">
+            <input type="checkbox" name="" id="select-all" />
+            <span class="all">Select all</span>
+          </th>
+          <th>Product</th>
+          <th>Seller</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="checkbox" name="check" class="row-checkbox" />
+          </td>
+          <td>Smartphone</td>
+          <td>Northstar</td>
+          <td>$399.00</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="check" class="row-checkbox" />
+          </td>
+          <td>Water filter pitcher</td>
+          <td>Northstar</td>
+          <td>$29.99</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="check" class="row-checkbox" />
+          </td>
+          <td>Smart TV</td>
+          <td>Northstar</td>
+          <td>$249.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      const selectAllCheckbox = document.querySelector("#select-all")
+      const rowCheckboxes = document.querySelectorAll(".row-checkbox")
+      selectAllCheckbox.addEventListener("click", function () {
+        for (let index = 0; index < rowCheckboxes.length; ++index) {
+          rowCheckboxes[index].checked = this.checked
+        }
+      })
+      for (let index = 0; index < rowCheckboxes.length; ++index) {
+        rowCheckboxes[index].addEventListener("click", function () {
+          const checkedRowCheckboxes = document.querySelectorAll(".row-checkbox:checked")
+          selectAllCheckbox.checked = checkedRowCheckboxes.length == rowCheckboxes.length
+        })
+      }
+    </script>
+  </body>
+</html>

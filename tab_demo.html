@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, intiial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tab</title>
     <style>
       * {
@@ -72,10 +72,10 @@
       <div class="tab-nav">
         <h3>Daily deals</h3>
         <ul>
-          <li><a class="tab-nav__link active" href="javascript:;">Featured</a></li>
-          <li><a class="tab-nav__link" href="javascript:;">Food</a></li>
-          <li><a class="tab-nav__link" href="javascript:;">Household</a></li>
-          <li><a class="tab-nav__link" href="javascript:;">Personal care</a></li>
+          <li><a class="tab-nav__link active" href="javascript:;" data-id="0">Featured</a></li>
+          <li><a class="tab-nav__link" href="javascript:;" data-id="1">Food</a></li>
+          <li><a class="tab-nav__link" href="javascript:;" data-id="2">Household</a></li>
+          <li><a class="tab-nav__link" href="javascript:;" data-id="3">Personal care</a></li>
         </ul>
       </div>
       <div class="tab-content">
@@ -94,18 +94,19 @@
       </div>
     </div>
     <script>
-      const tabLinks = document.querySelectorAll(".tab-nav__link")
-      for (let i = 0; i < tabLinks.length; ++i) {
-        tabLinks[i].addEventListener("mouseenter", function () {
+      const listElement = document.querySelector(".tab-nav ul")
+      const tabPanels = document.querySelectorAll(".tab-content__item")
+      listElement.addEventListener("click", function (event) {
+        if (event.target.tagName === "A") {
           const activedTabNavLink = document.querySelector(".tab-nav__link.active")
           activedTabNavLink.classList.remove("active")
-          this.classList.add("active")
+          event.target.classList.add("active")
+          const index = +event.target.dataset.id
           const activedTabContentItem = document.querySelector(".tab-content__item.active")
           activedTabContentItem.classList.remove("active")
-          const currTabContentItem = document.querySelector(`.tab-content__item:nth-child(${i + 1})`)
-          currTabContentItem.classList.add("active")
-        })
-      }
+          tabPanels[index].classList.add("active")
+        }
+      })
     </script>
   </body>
 </html>
