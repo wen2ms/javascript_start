@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page event</title>
+    <style>
+      body {
+        height: 3000px;
+      }
+
+      #scroll-count {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+      }
+
+      .panel {
+        display: none;
+        margin: 100px;
+        overflow: scroll;
+        width: 200px;
+        height: 200px;
+        border: 2px solid #000;
+      }
+    </style>
+    <script>
+      //   window.addEventListener("load", function () {
+      //     const button = document.querySelector("button")
+      //     button.addEventListener("click", function () {
+      //       alert("Button")
+      //     })
+      //   })
+      document.addEventListener("DOMContentLoaded", function () {
+        const button = document.querySelector("button")
+        button.addEventListener("click", function () {
+          alert("Button")
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <button>Click</button>
+    <div id="scroll-count">Count: 0</div>
+    <div class="panel">
+      Scroll to explore this content Scroll to explore this content Scroll to explore this content Scroll to explore
+      this content Scroll to explore this content Scroll to explore this content Scroll to explore this content Scroll
+      to explore this content Scroll to explore this content Scroll to explore this content Scroll to explore this
+      content Scroll to explore this content Scroll to explore this content Scroll to explore this content Scroll to
+      explore this content Scroll to explore this content Scroll to explore this content Scroll to explore this content
+      Scroll to explore this content Scroll to explore this content Scroll to explore this content Scroll to explore
+      this content Scroll to explore this content Scroll to explore this content
+    </div>
+    <script>
+      let count = 0
+      const scrollCount = document.querySelector("#scroll-count")
+      window.addEventListener("scroll", function () {
+        ++count
+        scrollCount.textContent = `Count:${count}`
+      })
+      const panel = document.querySelector(".panel")
+      window.addEventListener("scroll", function () {
+        const scrollPosition = document.documentElement.scrollTop
+        if (scrollPosition >= 100) {
+          panel.style.display = "block"
+        } else {
+          panel.style.display = "none"
+        }
+      })
+    </script>
+  </body>
+</html>
