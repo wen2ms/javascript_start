@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow</title>
+  </head>
+  <body>
+    <script>
+      //   const func = function () {
+      //     console.log("func")
+      //   }
+      const func = () => {
+        console.log("func")
+      }
+      func()
+
+      const foo = {
+        uname: "foo",
+        sayHi: () => {
+          console.log(this)
+        },
+      }
+      foo.sayHi()
+
+      const bar = {
+        uname: "bar",
+        sayHi: function () {
+          const show = () => {
+            console.log(this)
+          }
+          show()
+        },
+      }
+      bar.sayHi()
+    </script>
+  </body>
+</html>
